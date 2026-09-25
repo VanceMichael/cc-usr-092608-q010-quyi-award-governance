@@ -1,0 +1,72 @@
+{
+  "title": "曲艺评奖档案与裁定操作流水",
+  "type": "object",
+  "required": ["domain", "version", "commands"],
+  "properties": {
+    "domain": { "type": "string", "const": "quyi-award-governance" },
+    "version": { "type": "integer", "minimum": 2 },
+    "title": { "type": "string" },
+    "deadline": { "type": "string", "format": "date" },
+    "commands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["op"],
+        "properties": {
+          "op": {
+            "type": "string",
+            "enum": [
+              "register_organization",
+              "register_person",
+              "add_affiliation",
+              "add_age_evidence",
+              "add_regional_experience",
+              "register_work",
+              "submit_version",
+              "add_participation",
+              "flag_clue",
+              "decide_clue",
+              "seal_round",
+              "open_review_case",
+              "supply_evidence",
+              "attach_age_evidence_via_case",
+              "decide_review_case",
+              "register_judge",
+              "assign",
+              "issue_blind_code",
+              "submit_score",
+              "reveal_identity",
+              "identity_of",
+              "admit_candidate",
+              "finals_event",
+              "assert_qualification",
+              "assert_standing",
+              "open_notice",
+              "register_downtime",
+              "quota_check",
+              "file_appeal",
+              "decide_appeal",
+              "confirm_winners",
+              "trace"
+            ]
+          },
+          "actor": {
+            "type": "string",
+            "enum": [
+              "报送院团",
+              "参评作者与演员",
+              "评委",
+              "秘书处",
+              "监审资格组",
+              "评奖组委会"
+            ]
+          },
+          "expect_error": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
